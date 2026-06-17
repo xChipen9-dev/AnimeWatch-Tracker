@@ -1,0 +1,31 @@
+<section class="trends">
+  <h1>Tendencias</h1>
+
+  <section *ngIf="popular.length">
+    <h2>🔥 Más populares</h2>
+    <div class="row">
+      <app-anime-card *ngFor="let anime of popular" [anime]="anime"></app-anime-card>
+    </div>
+  </section>
+
+  <section *ngIf="topRated.length">
+    <h2>⭐ Mejor valorados</h2>
+    <div class="row">
+      <app-anime-card *ngFor="let anime of topRated" [anime]="anime"></app-anime-card>
+    </div>
+  </section>
+
+  <section *ngIf="airing.length">
+    <h2>📺 En emisión</h2>
+    <div class="row">
+      <app-anime-card *ngFor="let anime of airing" [anime]="anime"></app-anime-card>
+    </div>
+  </section>
+
+  <section *ngIf="upcoming.length">
+    <h2>🆕 Próximos estrenos</h2>
+    <div class="row">
+      <app-anime-card *ngFor="let anime of upcoming" [anime]="anime"></app-anime-card>
+    </div>
+  </section>
+</section>

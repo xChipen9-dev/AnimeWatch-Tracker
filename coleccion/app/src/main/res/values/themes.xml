@@ -1,0 +1,27 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Tema base de la app -->
+    <style name="Base.Theme.Coleccion" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Colores base -->
+        <item name="android:colorBackground">@color/beige_bg</item>
+        <item name="android:statusBarColor">@color/purple_700</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+
+        <!-- Compatibilidad con gestos -->
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:fitsSystemWindows">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+
+        <!-- Fuente y estilo general -->
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/text_primary</item>
+
+        <!-- Colores de acento -->
+        <item name="colorPrimary">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <!-- Tema principal de la app -->
+    <style name="Theme.Coleccion" parent="Base.Theme.Coleccion" />
+
+</resources>

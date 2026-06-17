@@ -1,0 +1,122 @@
+<section class="hero">
+  <div class="hero-content">
+    <h1>
+      Sigue, descubre y ama<br>
+      <span>el anime</span>
+    </h1>
+
+    <p>
+      Descubre miles de animes, realiza un seguimiento de tu progreso y crea tu lista personalizada.
+    </p>
+
+    <form
+      class="hero-search"
+      [formGroup]="form"
+      (ngSubmit)="search()"
+    >
+      <input
+        type="text"
+        formControlName="query"
+        placeholder="Buscar anime... (Naruto, One Piece, Attack on Titan)"
+      />
+
+      <button type="submit">
+        🔍 Buscar
+      </button>
+    </form>
+  </div>
+</section>
+
+    <div class="input-row">
+      <label>
+        Nombre del anime
+        <input type="text" formControlName="query" placeholder="Ej: Naruto, One Piece, Attack on Titan" />
+      </label>
+
+      <button class="btn" type="submit">Buscar</button>
+    </div>
+
+    <div class="filters">
+      <label>
+        Tipo
+        <select formControlName="type">
+          <option value="">Cualquiera</option>
+          <option *ngFor="let t of types" [value]="t">{{ t | uppercase }}</option>
+        </select>
+      </label>
+
+      <label>
+        Estado
+        <select formControlName="status">
+          <option value="">Cualquiera</option>
+          <option *ngFor="let s of statuses" [value]="s">{{ s | titlecase }}</option>
+        </select>
+      </label>
+
+      <label>
+        Rating
+        <select formControlName="rating">
+          <option value="">Cualquiera</option>
+          <option *ngFor="let r of ratings" [value]="r">{{ r | uppercase }}</option>
+        </select>
+      </label>
+
+      <button class="btn-secondary" type="button" (click)="resetFilters()">Limpiar</button>
+    </div>
+
+<section class="feedback" *ngIf="loading || error || (hasSearched && !loading && animes.length === 0)">
+  <p *ngIf="loading">🔎 Buscando animes...</p>
+  <p *ngIf="error">{{ error }}</p>
+  <p *ngIf="hasSearched && !loading && animes.length === 0 && !error">
+    No se han encontrado resultados.
+  </p>
+</section>
+
+<div class="view-selector" *ngIf="animes.length > 0">
+  <button
+    class="btn-secondary"
+    [class.active]="viewMode === 'grid'"
+    (click)="viewMode = 'grid'"
+  >
+    🔳 Grid
+  </button>
+
+  <button
+    class="btn-secondary"
+    [class.active]="viewMode === 'list'"
+    (click)="viewMode = 'list'"
+  >
+    📋 Lista
+  </button>
+</div>
+
+<section class="results" *ngIf="animes.length > 0">
+  <h2>Resultados</h2>
+  <p class="loading-more" *ngIf="loading && animes.length > 0">
+  Cargando más animes...
+</p>
+
+<div class="grid" *ngIf="viewMode === 'grid'">
+  <app-anime-card
+    *ngFor="let anime of animes"
+    [anime]="anime"
+  ></app-anime-card>
+</div>
+->
+<div class="list" *ngIf="viewMode === 'list'">
+  <div class="list-item" *ngFor="let anime of animes">
+    <img class="list-cover" [src]="anime.images.jpg.image_url" />
+
+    <div class="list-info">
+      <h3>{{ anime.title }}</h3>
+      <p>⭐ {{ anime.score }}</p>
+      <p class="small">{{ anime.synopsis }}</p>
+
+      <a class="btn-secondary" [routerLink]="['/anime', anime.mal_id]">
+        Ver detalle →
+      </a>
+    </div>
+  </div>
+</div>
+  
+</section>

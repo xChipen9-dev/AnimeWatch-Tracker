@@ -1,0 +1,28 @@
+.trends {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.trends h1 {
+  margin-bottom: 20px;
+}
+
+.trends section {
+  margin-bottom: 35px;
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.row::-webkit-scrollbar {
+  height: 6px;
+}
+
+.row::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}

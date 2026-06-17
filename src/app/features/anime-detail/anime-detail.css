@@ -1,0 +1,217 @@
+.anime-hero {
+  position: relative;
+  min-height: 75vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 60px 20px;
+
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(11, 13, 23, 0.95),
+    rgba(11, 13, 23, 0.6),
+    rgba(11, 13, 23, 0.2)
+  );
+}
+
+.hero-content {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+  animation: fadeUp 0.6s ease-out;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.meta {
+  display: flex;
+  gap: 15px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 15px;
+}
+
+.synopsis {
+  max-width: 700px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  color: var(--text-muted);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-primary {
+  padding: 14px 24px;
+  border-radius: 999px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-secondary {
+  padding: 14px 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.loading,
+.error {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.cover {
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #0008;
+}
+
+.info {
+  flex: 1;
+}
+
+.meta {
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+.score {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+select,
+input {
+  padding: 6px;
+  margin-top: 4px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #0f1419;
+  color: var(--text-color);
+}
+
+.fav-btn {
+  padding: 8px 15px;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.save-btn {
+  background: var(--accent);
+  color: black;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.synopsis,
+.episodes,
+.reviews {
+  background: var(--bg-card);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.genres span {
+  display: inline-block;
+  margin-right: 8px;
+  opacity: 0.8;
+  font-size: 13px;
+}
+
+.review {
+  border-bottom: 1px solid #333;
+  padding: 8px 0;
+}
+
+.recommendations {
+  margin-top: 40px;
+}
+
+.recommendations h2 {
+  margin-bottom: 15px;
+}
+
+.recommendations-row {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.recommendations-row::-webkit-scrollbar {
+  height: 6px;
+}
+
+.recommendations-row::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.recommendations-row::-webkit-scrollbar-track {
+  background: transparent;
+}

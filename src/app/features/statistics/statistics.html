@@ -1,0 +1,16 @@
+<section class="stats">
+  <h1>Estadísticas de tu Lista</h1>
+
+  <div class="info">
+    <p><strong>Total de animes:</strong> {{ total }}</p>
+    <p><strong>Favoritos:</strong> {{ favorites }}</p>
+    <p><strong>Media de notas API:</strong> {{ averageApiScore | number:'1.1-2' }}</p>
+    <p><strong>Media de notas Usuario:</strong> {{ averageUserScore | number:'1.1-2' }}</p>
+  </div>
+
+  <h2>Distribución por Estado</h2>
+  <canvas id="stateChart"></canvas>
+
+  <h2>Comparativa de Nota</h2>
+  <canvas id="scoreChart"></canvas>
+</section>

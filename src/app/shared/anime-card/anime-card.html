@@ -1,0 +1,37 @@
+<div class="anime-card">
+  <a
+    class="card-link"
+    [routerLink]="['/anime', anime?.mal_id || item?.id]"
+  >
+    <div class="image-container">
+      <img
+        [src]="imageUrl"
+        [alt]="title"
+        loading="lazy"
+      />
+
+      <div class="overlay"></div>
+
+      <div class="score" *ngIf="score !== null">
+        ⭐ {{ score }}
+      </div>
+
+      <div class="state" *ngIf="item?.state">
+{{ item?.state }}
+      </div>
+    </div>
+
+    <div class="info">
+      <h3 class="title">{{ title }}</h3>
+    </div>
+  </a>
+
+  <button
+    *ngIf="item"
+    class="fav-btn"
+    (click)="favoriteClick.emit(); $event.stopPropagation()"
+  >
+    <span *ngIf="!item.favorite">♡</span>
+    <span *ngIf="item.favorite">♥</span>
+  </button>
+</div>

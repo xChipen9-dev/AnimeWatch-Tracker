@@ -1,0 +1,76 @@
+<section class="my-list">
+
+  <h1>Mi Lista</h1>
+
+  <div class="filters">
+    <button
+      *ngFor="let s of states"
+      [class.active]="selectedFilter === s"
+      (click)="selectedFilter = s"
+    >
+      {{ s | titlecase }}
+    </button>
+  </div>
+
+  <p *ngIf="items.length === 0" class="empty">
+    No tienes animes en esta vista. Agrega alguno desde el buscador.
+  </p>
+
+<div class="advanced-filters">
+
+  <input
+    type="text"
+    placeholder="Buscar en mi lista..."
+    [(ngModel)]="searchText"
+  />
+
+<div class="import-export">
+  <button class="btn-secondary" (click)="exportList()">
+    📤 Exportar lista
+  </button>
+
+  <label class="btn-secondary">
+    📥 Importar lista
+    <input
+      type="file"
+      accept=".json"
+      hidden
+      (change)="importList($event)"
+    />
+  </label>
+</div>
+
+  <select [(ngModel)]="typeFilter">
+    <option value="all">Todos los tipos</option>
+    <option value="tv">TV</option>
+    <option value="movie">Movie</option>
+    <option value="ova">OVA</option>
+    <option value="special">Special</option>
+  </select>
+
+  <select [(ngModel)]="sortOption">
+    <option value="none">Sin ordenar</option>
+    <option value="apiScore">Nota API</option>
+    <option value="userScore">Nota Usuario</option>
+    <option value="favoritesFirst">Favoritos primero</option>
+    <option value="recent">Más recientes añadidos</option>
+    <option value="state">Por estado</option>
+  </select>
+
+</div>
+
+  <div class="grid" *ngIf="items.length > 0">
+    <div class="item" *ngFor="let item of items">
+
+      <app-anime-card
+        [item]="item"
+        (favoriteClick)="toggleFavorite(item)"
+      ></app-anime-card>
+
+      <button class="remove-btn" (click)="remove(item)">
+        Eliminar
+      </button>
+    </div>
+  </div>
+
+</section>

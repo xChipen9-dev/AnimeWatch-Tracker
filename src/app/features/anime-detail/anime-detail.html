@@ -1,0 +1,115 @@
+<section *ngIf="loading" class="loading">
+  Cargando información...
+</section>
+
+<section *ngIf="error && !loading" class="error">
+  {{ error }}
+</section>
+
+<section
+  class="anime-hero"
+  *ngIf="anime && !loading"
+  [style.backgroundImage]="
+    'url(' +
+    (anime.images.jpg.large_image_url || anime.images.jpg.image_url) +
+    ')'
+  "
+>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <h1>{{ anime.title }}</h1>
+
+    <div class="meta">
+      <span *ngIf="anime.score !== null">⭐ {{ anime.score }}</span>
+      <span *ngIf="anime.episodes">📺 {{ anime.episodes }} eps</span>
+      <span *ngIf="anime.status">{{ anime.status }}</span>
+      <span *ngIf="anime.year">{{ anime.year }}</span>
+    </div>
+
+    <p class="synopsis">
+      {{ translatedSynopsis || anime.synopsis }}
+    </p>
+
+    <div class="actions">
+      <button class="btn-primary" (click)="saveToList()">
+        + Añadir a Mi Lista
+      </button>
+
+      <button class="btn-secondary" (click)="toggleFavorite()">
+        {{ isFavorite ? '♥ Favorito' : '♡ Favorito' }}
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="detail" *ngIf="anime && !loading">
+
+  <section class="user-controls">
+    <label>
+      Estado:
+      <select [(ngModel)]="selectedState" (change)="saveToList()">
+        <option value="PENDIENTE">Pendiente</option>
+        <option value="VIENDO">Viendo</option>
+        <option value="COMPLETADO">Completado</option>
+        <option value="ABANDONADO">Abandonado</option>
+      </select>
+    </label>
+
+    <label>
+      Tu nota:
+      <input
+        type="number"
+        min="0"
+        max="10"
+        step="0.5"
+        [(ngModel)]="userScore"
+        (change)="saveToList()"
+      />
+    </label>
+  </section>
+
+  <section class="genres" *ngIf="anime.genres?.length">
+    <span *ngFor="let g of anime.genres">
+      {{ g.name }}
+    </span>
+  </section>
+
+  <section class="episodes" *ngIf="episodes.length > 0">
+    <h2>Episodios</h2>
+
+    <ul>
+      <li *ngFor="let ep of episodes">
+        <strong>#{{ ep.mal_id }} - {{ ep.title }}</strong>
+        <span *ngIf="ep.aired"> · {{ ep.aired | date:'mediumDate' }}</span>
+        <span *ngIf="ep.filler"> · Filler</span>
+        <span *ngIf="ep.recap"> · Recap</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="reviews" *ngIf="reviews.length > 0">
+    <h2>Reviews</h2>
+
+    <article *ngFor="let r of reviews" class="review">
+      <header>
+        <strong>{{ r.user.username }}</strong>
+        <span>⭐ {{ r.score }}</span>
+        <span>{{ r.date | date:'mediumDate' }}</span>
+      </header>
+      <p>{{ r.review }}</p>
+    </article>
+  </section>
+
+  <section class="recommendations" *ngIf="recommendations.length > 0">
+    <h2>Anime Recomendado</h2>
+
+    <div class="recommendations-row">
+      <app-anime-card
+        *ngFor="let rec of recommendations"
+        [anime]="rec"
+      ></app-anime-card>
+    </div>
+  </section>
+
+</section>

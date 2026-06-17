@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Colección</string>
+    <string name="pokemon">Pokémon</string>
+    <string name="digimon">Digimon</string>
+    <string name="open">Abrir menú</string>
+    <string name="close">Cerrar menú</string>
+
+</resources>

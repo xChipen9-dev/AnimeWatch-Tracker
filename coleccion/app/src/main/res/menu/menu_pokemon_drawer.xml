@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_agua"
+        android:title="Agua"
+        android:icon="@drawable/agua" />
+    <item
+        android:id="@+id/nav_fuego"
+        android:title="Fuego"
+        android:icon="@drawable/fuego" />
+    <item
+        android:id="@+id/nav_tierra"
+        android:title="Tierra"
+        android:icon="@drawable/planta" />
+    <item
+        android:id="@+id/nav_electrico"
+        android:title="Eléctrico"
+        android:icon="@drawable/electrico" />
+</menu>

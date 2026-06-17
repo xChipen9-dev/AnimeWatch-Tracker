@@ -1,0 +1,31 @@
+<header class="navbar">
+    <div class="navbar-inner">
+
+        <a routerLink="/" class="brand">
+            <img src="assets/logo.jpg" alt="AnimeWatch logo" class="logo-img" />
+            <span class="title">AnimeWatchTracker</span>
+        </a>
+
+        <nav class="links">
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                Inicio
+            </a>
+
+            <a routerLink="/tendencias" routerLinkActive="active">
+                Tendencias
+            </a>
+
+            <a routerLink="/descubrir" routerLinkActive="active">
+                Discubrir
+            </a>
+
+            <a routerLink="/estadisticas" routerLinkActive="active">
+                Estadísticas
+            </a>
+
+            <a routerLink="/mi-lista" routerLinkActive="active">
+                Mi Lista
+            </a>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,13 @@
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="purple_700">#6A1B9A</color>
+    <color name="yellow_bg">#FFF8E1</color>
+    <color name="nav_inactive">#7A7A7A</color>
+    <color name="nav_active">#6A1B9A</color>
+    <color name="purple_50">#F3E5F5</color>
+    <color name="beige_bg">#FFF8E1</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+
+</resources>

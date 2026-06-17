@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/yellow_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgDigimon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:contentDescription="@string/digimon"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/txtNombreDigimon"
+        android:text="Agumon"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/purple_700"
+        android:layout_below="@id/imgDigimon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavDigimon"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_bottom_nav"
+        android:paddingTop="10dp"
+        android:paddingBottom="?attr/actionBarSize"
+        android:fitsSystemWindows="false"
+        app:labelVisibilityMode="labeled"
+        app:itemIconSize="32dp"
+        app:itemIconTint="@color/nav_items_colors"
+        app:itemTextColor="@color/nav_items_colors"
+        app:menu="@menu/bottom_nav_digimon" />
+
+
+</RelativeLayout>
